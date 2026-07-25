@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual Environments
+venv/
+.env
+
+# AI Models
+*.safetensors
+*.ckpt
+*.bin
+*.pt
+*.pth
+
+# Generated outputs
+output/
+generated/
+
+# VS Code settings
+.vscode/
+
+# Windows
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Log files
+*.loggit config --global --add safe.directory "E:/AI Studio/MidnightManuscript"
