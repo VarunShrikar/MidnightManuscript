@@ -11,7 +11,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 PROMPT_FILE = PROJECT_ROOT / "config" / "prompts" / "story_prompt.md"
 
-OUTPUT_FILE = PROJECT_ROOT / "output" / "stories" / "story_001.json"
+OUTPUT_DIR = PROJECT_ROOT / "output" / "stories"
+
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 with open(PROMPT_FILE, "r", encoding="utf-8") as file:
     prompt = file.read()
@@ -30,9 +32,20 @@ response = client.models.generate_content(
 
 story = json.loads(response.text)
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
+existing_files = sorted(OUTPUT_DIR.glob("story_*.json"))
+
+next_number = len(existing_files) + 1
+
+output_file = OUTPUT_DIR / f"story_{next_number:03}.json"
+
+with open(output_file, "w", encoding="utf-8") as file:
     json.dump(story, file, indent=4)
 
+print("====================================")
+print(" Midnight Manuscript ")
+print("====================================")
+print()
+
 print("✅ Story generated successfully!")
-print(f"📖 {story['title']}")
-print(f"💾 Saved to: {OUTPUT_FILE}")
+print(f"📖 Title : {story['title']}")
+print(f"💾 Saved : {output_file}")
