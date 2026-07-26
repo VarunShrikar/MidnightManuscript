@@ -27,4 +27,4 @@ Thumbs.db
 .DS_Store
 
 # Log files
-*.loggit config --global --add safe.directory "E:/AI Studio/MidnightManuscript"
+*.log
