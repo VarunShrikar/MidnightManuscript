@@ -12,19 +12,7 @@ The goal is to automate the creation of horror videos by combining multiple AI t
 
 The pipeline currently works like this:
 
-Story Prompt
-↓
-Gemini
-↓
-Structured JSON Story
-↓
-ComfyUI + FLUX
-↓
-Scene Images
-↓
-Video Creation
-↓
-YouTube / Instagram
+Story Prompt --> Gemini --> Structured JSON Story --> ComfyUI + FLUX --> Scene Images --> Video Creation --> YouTube / Instagram
 
 ---
 
